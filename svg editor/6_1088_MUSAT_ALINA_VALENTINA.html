@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang>
+  <head>
+    <meta charset="utf-8" />
+    <title>SVG Editor</title>
+    <link rel="stylesheet" href="6_1088_MUSAT_ALINA_VALENTINA.css">
+  </head>
+  <body>
+  <!-- INSTRUMENTE STANGA -->
+    <div class="sidebar-instrumente">
+      <ul>
+        <li>Figures:</li>
+        <li> <button id="dreptunghi">&#25 <br> Rectangle</button> </li>
+        <li> <button id="elipsa">&#8226 <br>Ellipse</button> </li>
+        <li> <button id="linie">&#8212 <br>Line</button> </li>
+        <br></br>
+        <li>Edit:</li>
+        <li> <button id="clear">Clear All</button> </li>
+        <li> <button id="delete">Delete</button> </li>
+        <li> <button id="move">Move</button> </li>
+        <br></br>
+        <li> <button id="deselect">Deselect</button> </li>
+        <li> <button id="undo">Undo</button> </li>
+        <li> <button id="redo">Redo</button> </li>
+        <br></br>
+        <li>Download:</li>
+        <li> <button id="downloadPNG">Save PNG</button> </li>
+        <li> <button id="downloadJPEG">Save JPEG</button> </li>
+      </ul>
+      <button id="help">? HELP ?</button>
+    </div>
+
+    <div id="line1"></div>
+
+
+  <!-- MIJLOC -->
+    <div id="content">
+      <svg id="editor">
+        <svg id="elemente">
+          <!-- aici se vor gasii elementele rect,ellipse,line -->
+        </svg>
+        <!-- selectiile -->
+        <rect id="selectieDrep" style="display: none;"/>
+        <ellipse id="selectieElipsa" style="display: none;"/>
+        <line id="selectieLinie" style="display: none;" stroke-width:15/>
+      </svg>
+    </div>
+
+
+    <!-- INSTRUMENTE DREAPTA -->
+    
+    <div id="line2"></div>
+    <div class="sidebar-modificari">
+    <!-- SIDEBAR URI CU COORDONATELE CARE VOR FI  ON/OFF DISPLAY IN FUNCTIE DE CE FIGURA ALEGEM SA DESENAM -->
+
+      <div id="sidebar-rectangle" style="display: none">
+        <h1>Rectangle</h1>
+        <span class="spanRight">
+          <h2>Coordonates:</h2>
+            <label for="xValue"> x  <input id="xValue" type="number" value="0">   </label> 
+            <label for="yValue">y   <input id="yValue" type="number" value="0">   </label>           
+            <label for="widthValue">width   <input id="widthValue" type="number" value="0">   </label>  
+            <label for="heightValue">height <input id="heightValue" type="number" value="0">   </label>
+          </span>
+      </div>
+
+      <div id="sidebar-ellipse" style="display: none">
+          <h1>Ellipse</h1>
+          <span class="spanRight">
+            <h2>Coordonates:</h2>
+            <label for="cxValue"> cx  <input id="cxValue" type="number" value="0">  </label>
+            <label for="cyValue">cy   <input id="cyValue" type="number" value="0"> </label>
+            <label for="rxValue">rx   <input id="rxValue" type="number" value="0"> </label>
+            <label for="ryValue">ry  <input id="ryValue" type="number" value="0"> </label>
+          </span>
+      </div>
+
+      <div id="sidebar-line" style="display: none">
+        <h1>Line</h1>
+        <span class="spanRight">
+          <h2>Coordonates:</h2>
+          <label for="x1Value"> x1    <input id="x1Value" type="number" value="0">  </label>
+          <label for="y1Value">y1     <input id="y1Value" type="number" value="0">  </label>
+          <label for="x2Value">to x2  <input id="x2Value" type="number" value="0">  </label>
+          <label for="y2Value">to y2  <input id="y2Value" type="number" value="0">  </label>
+        </span>
+      </div>
+
+
+    <!-- SIDEBARUL COMUN CU ALEGEREA OPACITATII,GROSIMII,CULORII -->
+      <div id="sidebar-comun">
+        <h2>Style:</h2>
+        <label for="opacityValue"> opacity 
+          <span id="lb_opacity"></span>
+          <input id="opacityValue" value="100" type="range" list="tickmarks"/>
+          <!-- VALORI PT SCALA -->
+          <datalist id="tickmarks">
+            <option value="0"></option>
+            <option value="10"></option>
+            <option value="20"></option>
+            <option value="30"></option>
+            <option value="40"></option>
+            <option value="50"></option>
+            <option value="60"></option>
+            <option value="70"></option>
+            <option value="80"></option>
+            <option value="90"></option>
+            <option value="100"></option>
+            </datalist> 
+        </label>
+      
+        <label for="strokeWidthValue">StrokeWidth <input id="strokeWidthValue" type="number" value="2" min="0"> </label>
+      
+        <fieldset id="colors">
+          <legend>Colors RGB</legend>
+            <input type="radio" name="radio1" id="radioBackground" checked="true" >Background</input>
+            <br>
+            <input type="radio" name="radio1" id="radioStroke">Stroke</input>
+          <div id="colorsRBG">
+            <div id="rgb">
+            <label for="r"> r <input id="r" type="number" value="255" min="0" max="255"> </label>
+            <label for="g"> g <input id="g" type="number" value="255" min="0" max="255"> </label>
+            <label for="b"> b <input id="b" type="number" value="255" min="0" max="255"> </label>
+            </div>
+            
+            <!-- culoarea curenta -->
+            <div id="color"></div>
+          </div>
+        </fieldset>
+      </div>
+      
+    </div>
+    
+    <script type="text/javascript" src="6_1088_MUSAT_ALINA_VALENTINA.js"/>
+
+  </body>
+</html>
